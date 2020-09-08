@@ -80,14 +80,18 @@ class FreshChat extends React.Component {
   constructor(props) {
     super(props)
     
-    let { token, ...moreProps } = props
+    let { token, host, ...moreProps } = props
 
     if (!token) {
       throw new Error(`token is required`)
     }
 
+    if (!host) {
+      throw new Error(`host is required`)
+    }
+
     this.init({
-      host: 'https://wchat.freshchat.com',
+      host,
       token,
       ...moreProps,
     })
